@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:51:47 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/31 18:49:07 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/31 18:52:56 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(void)
 		{
 			a[i] = i;
 		}
-		iter(a, 5, printer<int>);
+		iter(a, 5, printer<float>);
 	}
 	std::cout << "\n";
 	{
@@ -45,53 +45,7 @@ int	main(void)
 		{
 			a[i] = i;
 		}
-		iter(a, 5, printer<int>);
+		iter(a, 5, printer<char>);
 	}
-
-	// {
-	// 	float	a[5];
-	// 	int	i = 0;
-
-	// 	while (i < 5)
-	// 	{
-	// 		a[i] = 1.42;
-	// 		std::cout << a[i] << " ";
-	// 		i++;
-	// 	}
-	// 	std::cout << "\n";
-	// 	iter<float, float(*)(float)>(a, 5, &increment);
-
-	// 	i = 0;
-	// 	while (i < 5)
-	// 	{
-	// 		std::cout << a[i] << " ";
-	// 		i++;
-	// 	}
-	// 	std::cout << "\n";
-	// }
-
-
-	// {
-	// 	char	a[5];
-	// 	int	i = 0;
-
-	// 	while (i < 5)
-	// 	{
-	// 		a[i] = "a";
-	// 		std::cout << a[i] << " ";
-	// 		i++;
-	// 	}
-	// 	std::cout << "\n";
-	// 	iter(a, 5, &increment);
-
-	// 	i = 0;
-	// 	while (i < 5)
-	// 	{
-	// 		std::cout << a[i] << " ";
-	// 		i++;
-	// 	}
-	// 	std::cout << "\n";
-	// }
-
 	return (0);
 }
