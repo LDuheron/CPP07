@@ -20,6 +20,8 @@
 #define SUCCESS 0
 #define ERROR 1
 
+#define DEBUG 0
+
 template<typename T>
 class Array
 {

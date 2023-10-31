@@ -16,19 +16,22 @@
 
 Array::Array()
 {
-	// std::cout << "Default constructor called.\n";
+	if (DEBUG)
+		std::cout << "Default constructor called.\n";
 }
 
 Array::Array(Array const & src)
 {
-	// std::cout << "Copy constructor called.\n";
+	if (DEBUG)
+		std::cout << "Copy constructor called.\n";
 }
 
 // Destructor ------------------------------------------------------------------
 
 Array::~Array()
 {
-	// std::cout << "Destructor called.\n";
+	if (DEBUG)
+		std::cout << "Destructor called.\n";
 }
 
 // Accessors -------------------------------------------------------------------
