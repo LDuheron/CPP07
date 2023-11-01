@@ -26,8 +26,8 @@ template <typename T>
 class Array
 {
 	private:
-		T*	_array;
-		int	_size;
+		T*				_array;
+		unsigned int	_size;
 
 	public:
 		Array<T>() : _array(), _size(0) {}
@@ -35,15 +35,15 @@ class Array
 		{
 			this->_size = n;
 			this->_array = new T[n];
-			for (int i = 0; i < this->_size; i++)
+			for (unsigned int i = 0; i < this->_size; i++)
 				this->_array[i] = 0;
 		}
 
 		Array<T>(Array<T> const & src){
 			this->_size = src._size;
 			this->_array = new T[this->_size];
-			// for (int i = 0; i < this->_size; i++)
-			// 	this->_array[i] = src._array[i];
+			for (unsigned int i = 0; i < this->_size; i++)
+				this->_array[i] = src._array[i];
 		}
 
 		~Array<T>(){
@@ -52,25 +52,46 @@ class Array
 		}
 
 		Array &	operator=(Array const & rhs){
-			if (this->array != NULL)
-				delete[] this->_array
-			this->_array = rhs._array;
 			this->_size = rhs._size;
+			if (this->array != NULL)
+				delete[] this->_array;
+			this-> array = new T[this->_size];
+			for (unsigned int i = 0; i < this->_size; i++)
+				this->_array[i] = rhs._array[i];
 		}
 
+		Array &	operator[](unsigned int i){
+			if (i > this->_size)
+				throw(IndexOutOfBoundsException());
+			return (this->array[i]);
+		}
+
+
 		void	setArray(T value) {
-			for (int i = 0; i < this->_size; i++)
+			for (unsigned int i = 0; i < this->_size; i++)
 				this->_array[i] = value;
 		}
 
 		void	printArray(void) const {
-			for (int i = 0; i < this->_size; i++)
+			for (unsigned int i = 0; i < this->_size; i++)
 				std::cout << this->_array[i] << "\n";
 		}
 
 		void	size(void) {return this->size;}
+
+
+		class IndexOutOfBoundsException : public std::exception 
+		{
+			public:
+				virtual const char* what() const throw();
+		};
 };
 
+template <typename T>
+const char* Array<T>::IndexOutOfBoundsException::what() const throw()
+{
+	return ("Index out of bounds.\n");
+}
 #endif
 
 
