@@ -42,8 +42,8 @@ class Array
 		Array<T>(Array<T> const & src){
 			this->_size = src._size;
 			this->_array = new T[this->_size];
-			for (int i = 0; i < this->_size; i++)
-				this->_array[i] = src._array[i];
+			// for (int i = 0; i < this->_size; i++)
+			// 	this->_array[i] = src._array[i];
 		}
 
 		~Array<T>(){
@@ -52,6 +52,8 @@ class Array
 		}
 
 		Array &	operator=(Array const & rhs){
+			if (this->array != NULL)
+				delete[] this->_array
 			this->_array = rhs._array;
 			this->_size = rhs._size;
 		}
