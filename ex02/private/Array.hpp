@@ -36,12 +36,16 @@ class Array
 			this->_size = n;
 			this->_array = new T[n];
 			for (int i = 0; i < this->_size; i++)
-				this->_array[this->_size] = 0;
+				this->_array[i] = 0;
 		}
 
 		Array<T>(Array<T> const & src){
-			this = src;
+			this->_size = src._size;
+			this->_array = new T[this->_size];
+			for (int i = 0; i < this->_size; i++)
+				this->_array[i] = src._array[i];
 		}
+
 		~Array<T>(){
 			if (this->_size != 0)
 				delete[] this->_array;
@@ -52,12 +56,17 @@ class Array
 			this->_size = rhs._size;
 		}
 
+		void	setArray(T value) {
+			for (int i = 0; i < this->_size; i++)
+				this->_array[i] = value;
+		}
+
 		void	printArray(void) const {
 			for (int i = 0; i < this->_size; i++)
 				std::cout << this->_array[i] << "\n";
 		}
 
-		void	size(void) {return this->size}
+		void	size(void) {return this->size;}
 };
 
 #endif

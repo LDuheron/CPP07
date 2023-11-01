@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 18:53:50 by lduheron          #+#    #+#             */
-/*   Updated: 2023/11/01 17:09:10 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/11/01 17:23:17 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,23 @@ void	fullArrayTest(void)
 	std::cout << "\n";
 }
 
+void	copyArrayTest(void)
+{
+	Array<int> first(2);
+	Array<int> second(first);
+
+	second.printArray();
+
+	std::cout << "\n";
+	first.setArray(8);
+	second.printArray();
+}
+
 int	main(void)
 {
-	emptyArrayTest();
-	fullArrayTest();
-	
+	// emptyArrayTest();
+	// fullArrayTest();
+	copyArrayTest();
+
 	return (SUCCESS);
 }
