@@ -23,7 +23,6 @@ PRV_DIR		= 	private
 #            SOURCE FILES            #
 ######################################
 SRC			=						\
-				class/Array.cpp		\
 				main.cpp
 
 ######################################
@@ -38,7 +37,7 @@ DEP			=	${OBJ:.o=.d}
 #                FLAGS                #
 #######################################
 CXXFLAGS	=	-c
-CXXFLAGS	+=	-Wall -Wextra -Werror
+CXXFLAGS	+=	-Wall -Wextra -Werror -g3
 CXXFLAGS	+=	-MMD -MP
 CXXFLAGS	+=	-Wshadow
 CXXFLAGS	+=	-std=c++98

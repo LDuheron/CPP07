@@ -22,26 +22,45 @@
 
 #define DEBUG 0
 
-template<typename T>
+template <typename T>
 class Array
 {
 	private:
-		T*	_type;
+		T*	_array;
 		int	_size;
 
 	public:
-		Array<T>();
-		Array<T>(Array<T> const & src);
-		~Array<T>();
+		Array<T>() : _array(), _size(0) {}
+		Array<T>(unsigned int n)
+		{
+			this->_size = n;
+			this->_array = new T[n];
+			for (int i = 0; i < this->_size; i++)
+				this->_array[this->_size] = 0;
+		}
 
-		Array &	operator=(Array const & rhs);
+		Array<T>(Array<T> const & src){
+			this = src;
+		}
+		~Array<T>(){
+			if (this->_size != 0)
+				delete[] this->_array;
+		}
 
-		std::string const &	getSize(void) const;
+		Array &	operator=(Array const & rhs){
+			this->_array = rhs._array;
+			this->_size = rhs._size;
+		}
 
-		// int	size(void)
-		// {return this->_size};
+		void	printArray(void) const {
+			for (int i = 0; i < this->_size; i++)
+				std::cout << this->_array[i] << "\n";
+		}
+
+		void	size(void) {return this->size}
 };
 
-std::ostream & operator<<(std::ostream & lhs, Array const & rhs);
-
 #endif
+
+
+	
